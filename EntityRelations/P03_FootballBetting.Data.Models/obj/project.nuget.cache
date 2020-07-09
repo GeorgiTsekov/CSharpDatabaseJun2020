@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "VbpdUKIjeLsq82BuCf7A9Pasufok3KG0vm9MxWKbZG+T5GHbaixsuC/e/cZIZ0Z33joH/DztVYrFAJjfYIoNXA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\georg\\source\\repos\\DataBaseAdvanced\\EntityRelations\\P03_FootballBetting.Data.Models\\P03_FootballBetting.Data.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\georg\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\georg\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

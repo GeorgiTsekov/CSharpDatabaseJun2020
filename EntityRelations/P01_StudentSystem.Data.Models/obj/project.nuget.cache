@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "OCpv7MJTnvaJwecJUdEr7QCwe+Nj+7gnkCVOIhF9VlU9nCTU2aK31d9wNC2vPpJiZPev0lLs8BseOD47wi9A0Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\georg\\source\\repos\\DataBaseAdvanced\\EntityRelations\\P01_StudentSystem.Data.Models\\P01_StudentSystem.Data.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\georg\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\georg\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

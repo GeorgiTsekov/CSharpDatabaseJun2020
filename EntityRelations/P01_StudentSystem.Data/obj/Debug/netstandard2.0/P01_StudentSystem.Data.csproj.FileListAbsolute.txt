@@ -1,0 +1,12 @@
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\bin\Debug\netstandard2.0\P01_StudentSystem.Data.deps.json
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\bin\Debug\netstandard2.0\P01_StudentSystem.Data.dll
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\bin\Debug\netstandard2.0\P01_StudentSystem.Data.pdb
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\bin\Debug\netstandard2.0\P01_StudentSystem.Data.Models.dll
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\bin\Debug\netstandard2.0\P01_StudentSystem.Data.Models.pdb
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\obj\Debug\netstandard2.0\P01_StudentSystem.Data.csprojAssemblyReference.cache
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\obj\Debug\netstandard2.0\P01_StudentSystem.Data.AssemblyInfoInputs.cache
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\obj\Debug\netstandard2.0\P01_StudentSystem.Data.AssemblyInfo.cs
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\obj\Debug\netstandard2.0\P01_StudentSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\obj\Debug\netstandard2.0\P01_StudentSystem.Data.csproj.CopyComplete
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\obj\Debug\netstandard2.0\P01_StudentSystem.Data.dll
+C:\Users\georg\source\repos\DataBaseAdvanced\EntityRelations\P01_StudentSystem.Data\obj\Debug\netstandard2.0\P01_StudentSystem.Data.pdb

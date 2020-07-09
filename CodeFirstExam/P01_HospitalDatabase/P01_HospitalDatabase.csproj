@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200624134241_Initial.cs" />
+    <Compile Remove="Migrations\20200624134241_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200624135226_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200624135226_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200624135808_Initial2.cs" />
+    <Compile Remove="Migrations\20200624135808_Initial2.Designer.cs" />
+    <Compile Remove="Migrations\20200624141743_Initial1.cs" />
+    <Compile Remove="Migrations\20200624141743_Initial1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
+  </ItemGroup>
+
+</Project>
