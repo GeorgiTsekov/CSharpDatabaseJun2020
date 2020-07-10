@@ -1,0 +1,12 @@
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\bin\Debug\netcoreapp2.0\BookShop.Data.deps.json
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\bin\Debug\netcoreapp2.0\BookShop.Data.dll
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\bin\Debug\netcoreapp2.0\BookShop.Data.pdb
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\bin\Debug\netcoreapp2.0\BookShop.Models.dll
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\bin\Debug\netcoreapp2.0\BookShop.Models.pdb
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\obj\Debug\netcoreapp2.0\BookShop.Data.csprojAssemblyReference.cache
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\obj\Debug\netcoreapp2.0\BookShop.Data.AssemblyInfoInputs.cache
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\obj\Debug\netcoreapp2.0\BookShop.Data.AssemblyInfo.cs
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\obj\Debug\netcoreapp2.0\BookShop.Data.csproj.CoreCompileInputs.cache
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\obj\Debug\netcoreapp2.0\BookShop.Data.csproj.CopyComplete
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\obj\Debug\netcoreapp2.0\BookShop.Data.dll
+C:\Users\georg\source\repos\CSharpDataBaseAdvanced\Advanced Querying\BookShop.Data\obj\Debug\netcoreapp2.0\BookShop.Data.pdb
