@@ -4,6 +4,7 @@ using ProductShop.Data;
 using ProductShop.Dtos.Export;
 using ProductShop.Dtos.Import;
 using ProductShop.Models;
+using ProductShop.XMLHelper;
 using System;
 using System.IO;
 using System.Linq;
@@ -18,33 +19,38 @@ namespace ProductShop
         {
             //Mapper.Initialize(cfg => cfg.AddProfile<ProductShopProfile>());
 
-            using (var db = new ProductShopContext())
-            {
-                //db.Database.EnsureDeleted();
-                //db.Database.EnsureCreated();
+            using ProductShopContext context = new ProductShopContext();
 
-                //var inputXml = File.ReadAllText("./../../../Datasets/categories-products.xml");
+            //context.Database.EnsureDeleted();
+            //context.Database.EnsureCreated();
 
-                //var result = ImportCategoryProducts(db, inputXml);
-                var result = GetUsersWithProducts(db);
+            //var inputXml = File.ReadAllText("./../../../Datasets/users.xml");
+            //var inputXml = File.ReadAllText("./../../../Datasets/products.xml");
+            //var inputXml = File.ReadAllText("./../../../Datasets/categories.xml");
+            //var inputXml = File.ReadAllText("./../../../Datasets/categories-products.xml");
 
-                Console.WriteLine(result);
-            }
+            //var result = ImportCategoryProducts(context, inputXml);
+            var result = GetUsersWithProducts(context);
+
+            Console.WriteLine(result);
+            
         }
 
         //Query 1. Import Users
         public static string ImportUsers(ProductShopContext context, string inputXml)
         {
-            var xmlSerializer = new XmlSerializer(typeof(ImportUserDto[]), new XmlRootAttribute("Users"));
+            const string rootElement = "Users";
 
-            ImportUserDto[] userDtos;
+            var usersResult = XMLConverter.Deserializer<ImportUserDto>(inputXml, rootElement);
 
-            using (var reader = new StringReader(inputXml))
-            {
-                userDtos = (ImportUserDto[])xmlSerializer.Deserialize(reader);
-            }
-
-            var users = Mapper.Map<User[]>(userDtos);
+            var users = usersResult
+                .Select(u => new User
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Age = u.Age
+                })
+                .ToArray();
 
             context.Users.AddRange(users);
             context.SaveChanges();
@@ -55,16 +61,19 @@ namespace ProductShop
         //Query 2. Import Products
         public static string ImportProducts(ProductShopContext context, string inputXml)
         {
-            var xmlSerializer = new XmlSerializer(typeof(ImportProductDto[]), new XmlRootAttribute("Products"));
+            const string rootElement = "Products";
 
-            ImportProductDto[] productDtos;
+            var productResult = XMLConverter.Deserializer<ImportProductDto>(inputXml, rootElement);
 
-            using (var reader = new StringReader(inputXml))
-            {
-                productDtos = (ImportProductDto[])xmlSerializer.Deserialize(reader);
-            }
-
-            var products = Mapper.Map<Product[]>(productDtos);
+            var products = productResult
+                .Select(u => new Product
+                {
+                    Name = u.Name,
+                    Price = u.Price,
+                    SellerId = u.SellerId,
+                    BuyerId = u.BuyerId
+                })
+                .ToArray();
 
             context.Products.AddRange(products);
             context.SaveChanges();
@@ -75,18 +84,17 @@ namespace ProductShop
         //Query 3. Import Categories
         public static string ImportCategories(ProductShopContext context, string inputXml)
         {
-            var xmlSerializer = new XmlSerializer(typeof(ImportCategoryDto[]), new XmlRootAttribute("Categories"));
+            const string rootElement = "Categories";
 
-            ImportCategoryDto[] categoryDtos;
+            var dtoResult = XMLConverter.Deserializer<ImportCategoryDto>(inputXml, rootElement);
 
-            using (var reader = new StringReader(inputXml))
-            {
-                categoryDtos = ((ImportCategoryDto[])xmlSerializer.Deserialize(reader))
-                    .Where(c => c.Name != null && c.Name != "")
-                    .ToArray();
-            }
-
-            var categories = Mapper.Map<Category[]>(categoryDtos);
+            var categories = dtoResult
+                .Where(x => x.Name != null)
+                .Select(x => new Category
+                {
+                    Name = x.Name
+                })
+                .ToArray();
 
             context.Categories.AddRange(categories);
             context.SaveChanges();
@@ -97,18 +105,18 @@ namespace ProductShop
         //Query 4. Import Categories and Products
         public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
         {
-            var xmlSerializer = new XmlSerializer(typeof(ImportCategoryProductDto[]), new XmlRootAttribute("CategoryProducts"));
+            const string rootElement = "CategoryProducts";
 
-            ImportCategoryProductDto[] categoryProductDtos;
+            var dtoResult = XMLConverter.Deserializer<ImportCategoryProductDto>(inputXml, rootElement);
 
-            using (var reader = new StringReader(inputXml))
-            {
-                categoryProductDtos = ((ImportCategoryProductDto[])xmlSerializer.Deserialize(reader))
-                    .Where(cp => context.Categories.Any(c => c.Id == cp.CategoryId) && context.Products.Any(p => p.Id == cp.ProductId))
-                    .ToArray();
-            }
-
-            var categoryProducts = Mapper.Map<CategoryProduct[]>(categoryProductDtos);
+            var categoryProducts = dtoResult
+                .Where(cp => context.Categories.Any(c => c.Id == cp.CategoryId) && context.Products.Any(p => p.Id == cp.ProductId))
+                .Select(x => new CategoryProduct
+                {
+                    CategoryId = x.CategoryId,
+                    ProductId = x.ProductId
+                })
+                .ToArray();
 
             context.CategoryProducts.AddRange(categoryProducts);
             context.SaveChanges();
@@ -119,87 +127,87 @@ namespace ProductShop
         //Query 5. Products In Range
         public static string GetProductsInRange(ProductShopContext context)
         {
-            StringBuilder sb = new StringBuilder();
+            const string rootElement = "Products";
 
             var products = context
                 .Products
                 .Where(p => p.Price >= 500 && p.Price <= 1000)
+                .Select(p => new ExportProductInRangeDto
+                {
+                   Name = p.Name,
+                   Price = p.Price,
+                   BuyerName = p.Buyer.FirstName + " " + p.Buyer.LastName
+                })
                 .OrderBy(p => p.Price)
                 .Take(10)
-                .ProjectTo<ExportProductInRangeDto>()
                 .ToArray();
 
-            var xmlSerializer = new XmlSerializer(typeof(ExportProductInRangeDto[]), new XmlRootAttribute("Products"));
+            var result = XMLConverter.Serialize(products, rootElement);
 
-            var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add("", "");
-
-            using (var writer = new StringWriter(sb))
-            {
-                xmlSerializer.Serialize(writer, products, namespaces);
-            }
-            return sb.ToString().TrimEnd();
+            return result;
         }
 
         //Query 6. Sold Products
         public static string GetSoldProducts(ProductShopContext context)
         {
-            StringBuilder sb = new StringBuilder();
+            const string rootElement = "Users";
 
             var users = context
                 .Users
                 .Where(u => u.ProductsSold.Any())
+                .Select(u => new ExportUserWithProductsDto
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    SoldProducts = u.ProductsSold.Select(sp => new ExportSoldProductDto 
+                    {
+                        Name = sp.Name,
+                        Price = sp.Price
+                    })
+                    .ToArray()
+                })
                 .OrderBy(u => u.LastName)
                 .ThenBy(u => u.FirstName)
                 .Take(5)
-                .ProjectTo<ExportUserWithProductsDto>()
                 .ToArray();
 
-            var xmlSerializer = new XmlSerializer(typeof(ExportUserWithProductsDto[]), new XmlRootAttribute("Users"));
+            var result = XMLConverter.Serialize(users, rootElement);
 
-            var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add("", "");
-
-            using (var writer = new StringWriter(sb))
-            {
-                xmlSerializer.Serialize(writer, users, namespaces);
-            }
-            return sb.ToString().TrimEnd();
+            return result;
         }
 
         //Query 7. Categories By Products Count
         public static string GetCategoriesByProductsCount(ProductShopContext context)
         {
-            StringBuilder sb = new StringBuilder();
+            const string rootElement = "Categories";
 
             var categories = context
                 .Categories
-                .OrderByDescending(c => c.CategoryProducts.Count)
-                .ThenBy(c => c.CategoryProducts.Sum(cp => cp.Product.Price))
-                .ProjectTo<ExportCategoryDto>()
+                .Select(c => new ExportCategoryDto
+                {
+                    Name = c.Name,
+                    Count = c.CategoryProducts.Count,
+                    AveragePrice = c.CategoryProducts.Average(cp => cp.Product.Price),
+                    TotalRevenue = c.CategoryProducts.Sum(cp => cp.Product.Price)
+                })
+                .OrderByDescending(c => c.Count)
+                .ThenBy(c => c.TotalRevenue)
                 .ToArray();
 
-            var xmlSerializer = new XmlSerializer(typeof(ExportCategoryDto[]), new XmlRootAttribute("Categories"));
+            var result = XMLConverter.Serialize(categories, rootElement);
 
-            var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add("", "");
-
-            using (var writer = new StringWriter(sb))
-            {
-                xmlSerializer.Serialize(writer, categories, namespaces);
-            }
-            return sb.ToString().TrimEnd();
+            return result;
         }
 
         //Query 8. Users and Products
         public static string GetUsersWithProducts(ProductShopContext context)
         {
-            StringBuilder sb = new StringBuilder();
+            const string rootElement = "Users";
 
             var users = context
                 .Users
+                .ToArray()
                 .Where(u => u.ProductsSold.Any())
-                .OrderByDescending(u => u.ProductsSold.Count)
                 .Select(x => new ExportUserWithAgeFLNameAndProductsDto
                 {
                     FirstName = x.FirstName,
@@ -208,7 +216,7 @@ namespace ProductShop
                     SoldProductsDto = new SoldProductsDto
                     {
                         Count = x.ProductsSold.Count,
-                        Products = x.ProductsSold.Select(ps => new ExportSoldProductDto()
+                        Products = x.ProductsSold.Select(ps => new ExportSoldProductDto
                         {
                             Name = ps.Name,
                             Price = ps.Price
@@ -217,27 +225,19 @@ namespace ProductShop
                         .ToArray()
                     }
                 })
+                .OrderByDescending(u => u.SoldProductsDto.Count)
                 .Take(10)
                 .ToArray();
 
-            var customExport = new ExportUsersWithUsersCountDto
+            var customExport = new ExportUsersCountAndUsersDto
             {
-                Count = context
-                .Users
-                .Count(u => u.ProductsSold.Any()),
-                ExportUserWithAgeFLNameAndProductsDto = users
+                Count = context.Users.Count(u => u.ProductsSold.Any()),
+                Users = users
             };
 
-            var xmlSerializer = new XmlSerializer(typeof(ExportUsersWithUsersCountDto), new XmlRootAttribute("Users"));
+            var result = XMLConverter.Serialize(customExport, rootElement);
 
-            var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add("", "");
-
-            using (var writer = new StringWriter(sb))
-            {
-                xmlSerializer.Serialize(writer, customExport, namespaces);
-            }
-            return sb.ToString().TrimEnd();
+            return result;
         }
     }
 }
