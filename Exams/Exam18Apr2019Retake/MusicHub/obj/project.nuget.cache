@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S+03qKK4pBSdOWXkoUhpIFiqRnu4+1mS58bBEgFdQnthcLayBS8HD99duBP7/oJOOWkY69b/zFQd6NBLoAqZpg==",
+  "dgSpecHash": "6Gh12EUwiMd0oVk3jAEGIYoMzWzoKZB5F1RUgNOOTzpVCIi6eT8l/rzI8WFQjQazo15hbzwikQCc/u4uiL0Pkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\Exam18Apr2019Retake\\01. Model Defition_Skeleton + Datasets\\MusicHub\\MusicHub.csproj",
+  "projectFilePath": "C:\\git\\CSharpDatabase\\Exams\\Exam18Apr2019Retake\\MusicHub\\MusicHub.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\georg\\.nuget\\packages\\automapper\\8.0.0\\automapper.8.0.0.nupkg.sha512",
     "C:\\Users\\georg\\.nuget\\packages\\castle.core\\4.2.1\\castle.core.4.2.1.nupkg.sha512",

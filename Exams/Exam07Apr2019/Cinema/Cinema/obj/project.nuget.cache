@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ucs3kbQk/iqwsOJHxZ7We7VIgJXqYAOB9vhOuZToc1dsriRJADFBnlKXnp+OVE34otPTZff70Rz6ccXW9aiE2w==",
+  "dgSpecHash": "NmtSH+ETXIlu/Bd0LFKXdydo9MVFsN/JNydHlweUw11yRmDaScdmfHBcmZVbJbcLmMHy43xH1EnMfZIpG3wbjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\01. Model Definition _Skeleton + Datasets\\Cinema\\Cinema\\Cinema.csproj",
+  "projectFilePath": "C:\\git\\CSharpDatabase\\Exams\\Exam07Apr2019\\Cinema\\Cinema\\Cinema.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\georg\\.nuget\\packages\\automapper\\8.0.0\\automapper.8.0.0.nupkg.sha512",
     "C:\\Users\\georg\\.nuget\\packages\\castle.core\\4.2.1\\castle.core.4.2.1.nupkg.sha512",

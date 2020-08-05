@@ -6446,11 +6446,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\Exam18Apr2019Retake\\01. Model Defition_Skeleton + Datasets\\MusicHub\\MusicHub.csproj",
+      "projectUniqueName": "C:\\git\\CSharpDatabase\\Exams\\Exam18Apr2019Retake\\MusicHub\\MusicHub.csproj",
       "projectName": "MusicHub",
-      "projectPath": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\Exam18Apr2019Retake\\01. Model Defition_Skeleton + Datasets\\MusicHub\\MusicHub.csproj",
+      "projectPath": "C:\\git\\CSharpDatabase\\Exams\\Exam18Apr2019Retake\\MusicHub\\MusicHub.csproj",
       "packagesPath": "C:\\Users\\georg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\Exam18Apr2019Retake\\01. Model Defition_Skeleton + Datasets\\MusicHub\\obj\\",
+      "outputPath": "C:\\git\\CSharpDatabase\\Exams\\Exam18Apr2019Retake\\MusicHub\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\georg\\AppData\\Roaming\\NuGet\\NuGet.Config",

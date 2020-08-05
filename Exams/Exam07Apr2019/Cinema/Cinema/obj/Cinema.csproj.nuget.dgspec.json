@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\01. Model Definition _Skeleton + Datasets\\Cinema\\Cinema\\Cinema.csproj": {}
+    "C:\\git\\CSharpDatabase\\Exams\\Exam07Apr2019\\Cinema\\Cinema\\Cinema.csproj": {}
   },
   "projects": {
-    "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\01. Model Definition _Skeleton + Datasets\\Cinema\\Cinema\\Cinema.csproj": {
+    "C:\\git\\CSharpDatabase\\Exams\\Exam07Apr2019\\Cinema\\Cinema\\Cinema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\01. Model Definition _Skeleton + Datasets\\Cinema\\Cinema\\Cinema.csproj",
+        "projectUniqueName": "C:\\git\\CSharpDatabase\\Exams\\Exam07Apr2019\\Cinema\\Cinema\\Cinema.csproj",
         "projectName": "Cinema",
-        "projectPath": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\01. Model Definition _Skeleton + Datasets\\Cinema\\Cinema\\Cinema.csproj",
+        "projectPath": "C:\\git\\CSharpDatabase\\Exams\\Exam07Apr2019\\Cinema\\Cinema\\Cinema.csproj",
         "packagesPath": "C:\\Users\\georg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\georg\\source\\repos\\CSharpDataBaseAdvanced\\Exams\\01. Model Definition _Skeleton + Datasets\\Cinema\\Cinema\\obj\\",
+        "outputPath": "C:\\git\\CSharpDatabase\\Exams\\Exam07Apr2019\\Cinema\\Cinema\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\georg\\AppData\\Roaming\\NuGet\\NuGet.Config",
